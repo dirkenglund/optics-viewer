@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optics Table - Interactive 3D Viewer</title>
+    <meta name="description" content="Interactive 3D viewer for multi-robot workcell configuration">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2>Loading 3D Model</h2>
+            <p id="loading-progress">0%</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">🔬</span>
+                    Optics Table Viewer
+                </h1>
+                <div class="header-actions">
+                    <button id="info-btn" class="btn btn-secondary" aria-label="Toggle information">
+                        <span class="icon">ℹ️</span>
+                        Info
+                    </button>
+                    <button id="theme-toggle" class="btn btn-secondary" aria-label="Toggle theme">
+                        <span class="icon" id="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 3D Canvas Container -->
+        <div id="canvas-container">
+            <canvas id="three-canvas"></canvas>
+        </div>
+
+        <!-- Controls Panel -->
+        <div class="controls-panel">
+            <div class="panel-header">
+                <h3>Camera Presets</h3>
+            </div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-preset="default">
+                    <span class="preset-icon">👁️</span>
+                    Default
+                </button>
+                <button class="preset-btn" data-preset="top">
+                    <span class="preset-icon">⬆️</span>
+                    Top
+                </button>
+                <button class="preset-btn" data-preset="front">
+                    <span class="preset-icon">➡️</span>
+                    Front
+                </button>
+                <button class="preset-btn" data-preset="side">
+                    <span class="preset-icon">↗️</span>
+                    Side
+                </button>
+            </div>
+            
+            <div class="panel-divider"></div>
+            
+            <div class="panel-header">
+                <h3>Display Options</h3>
+            </div>
+            <div class="display-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="wireframe-toggle">
+                    <span>Wireframe Mode</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="grid-toggle" checked>
+                    <span>Show Grid</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="axes-toggle" checked>
+                    <span>Show Axes</span>
+                </label>
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-header">
+                <h3>Controls</h3>
+            </div>
+            <div class="controls-info">
+                <div class="control-item">
+                    <span class="control-key">Left Click + Drag</span>
+                    <span class="control-desc">Rotate</span>
+                </div>
+                <div class="control-item">
+                    <span class="control-key">Right Click + Drag</span>
+                    <span class="control-desc">Pan</span>
+                </div>
+                <div class="control-item">
+                    <span class="control-key">Scroll</span>
+                    <span class="control-desc">Zoom</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div id="info-panel" class="info-panel hidden">
+            <div class="info-content">
+                <button id="close-info" class="close-btn" aria-label="Close info panel">✕</button>
+                <h2>Multi-Robot Workcell</h2>
+                <p class="info-description">
+                    This interactive 3D model showcases a multi-robot workcell configuration 
+                    designed for collaborative automation tasks. The setup features precision 
+                    robotics mounted on an optics table for high-accuracy operations.
+                </p>
+                
+                <h3>Model Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Created with:</span>
+                        <span class="info-value">Blender 3D</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Viewer:</span>
+                        <span class="info-value">Three.js WebGL</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Format:</span>
+                        <span class="info-value">glTF 2.0</span>
+                    </div>
+                </div>
+
+                <h3>Features</h3>
+                <ul class="feature-list">
+                    <li>Real-time 3D rendering in your browser</li>
+                    <li>Interactive camera controls</li>
+                    <li>Multiple viewing presets</li>
+                    <li>Wireframe visualization</li>
+                    <li>Responsive design for all devices</li>
+                </ul>
+
+                <div class="info-footer">
+                    <p>Use the controls on the left to explore different views and display options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
