@@ -120,7 +120,6 @@ function loadModel() {
     createPlaceholderScene();
 
     // Uncomment this when you have your actual .glb file:
-    /*
     loader.load(
         '/models/optics_table.glb',
         (gltf) => {
@@ -149,7 +148,6 @@ function loadModel() {
             loadingProgress.textContent = 'Error loading model';
         }
     );
-    */
 }
 
 // Create placeholder scene (remove when actual model is loaded)
